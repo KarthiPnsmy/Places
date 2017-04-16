@@ -1,0 +1,26 @@
+PODS:
+  - Alamofire (4.4.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
+  - Cosmos (8.0.2)
+  - DLRadioButton (1.4.9)
+  - ImageSlideshow (1.2.0):
+    - ImageSlideshow/Core (= 1.2.0)
+  - ImageSlideshow/Core (1.2.0)
+
+DEPENDENCIES:
+  - AlamofireImage (~> 3.1)
+  - Cosmos (~> 8.0)
+  - DLRadioButton (~> 1.4)
+  - ImageSlideshow (~> 1.2)
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  Cosmos: 007c0b8e33a85e5363911bdd933571bbe221f7ef
+  DLRadioButton: 7bb8a6e3768b572469ace553391ab4d2af6f9c19
+  ImageSlideshow: c1395dcf33f7dba407fd21df0e8c315e8941e209
+
+PODFILE CHECKSUM: edad846fd06defed9d281586508dfc67973765ba
+
+COCOAPODS: 1.2.0
