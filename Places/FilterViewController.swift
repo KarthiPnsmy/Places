@@ -19,8 +19,6 @@ class FilterViewController: UIViewController {
     @IBOutlet var parkBtn: DLRadioButton!
     @IBOutlet var slider: UISlider!
     
-    
-    
     @IBOutlet weak var selectedRadiusLabel: UILabel!
     var selectedType = Constants.SELECTED_TYPE;
     var selectedRadius = Constants.SELECTED_RADIUS
@@ -29,14 +27,12 @@ class FilterViewController: UIViewController {
     @IBOutlet weak var restaurant: DLRadioButton!
     
     @IBAction func sliderMoved(_ sender: UISlider) {
-        print("slider moved \(sender.value)")
         selectedRadius = String(format:"%.1f",(sender.value))
         selectedRadiusLabel.text = "(\(selectedRadius) km)"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,8 +63,6 @@ class FilterViewController: UIViewController {
         
         slider.setValue(Float(filterDict["selectedRadius"]!)!, animated: true)
         selectedRadiusLabel.text = "(\(filterDict["selectedRadius"]!) km)"
-        
-        print("viewDidLoad\(bankBtn.isSelected)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,29 +70,24 @@ class FilterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     @IBAction func apply(_ sender: Any) {
-        print("apply btn clicked")
-        print("atmBtn ==> \(atmBtn.selected()?.titleLabel?.text)")
         selectedType = (atmBtn.selected()?.titleLabel?.text)!
-        
         
         filterDict["type"] = selectedType
         filterDict["selectedRadius"] = selectedRadius
-        print("filterDict apply \(filterDict)")
-        
-        
         dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FilterDidSelected" {
-            print("atmBtn2 ==> \(atmBtn.selected()?.titleLabel?.text)")
             selectedType = (atmBtn.selected()?.titleLabel?.text)!
-            
-            
             filterDict["type"] = selectedType
             filterDict["selectedRadius"] = selectedRadius
-            print("filterDict2 apply \(filterDict)")
         }
     }
     

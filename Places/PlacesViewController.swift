@@ -21,7 +21,7 @@ class PlacesViewController: UIViewController {
     var updatingLocation = false
     var lastLocationError: Error?
     var searchResults: [Place] = []
-    var preditionList: [Prediction] = []
+    var predictionList: [Prediction] = []
     var hasSearched = false
     var isLoading = false
     var filterDict = Dictionary<String, String>()
@@ -93,7 +93,6 @@ class PlacesViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.startUpdatingLocation()
         updatingLocation = true
-        print("getLocation2")
     }
     
     func showLocationServicesDeniedAlert() {
@@ -125,7 +124,6 @@ class PlacesViewController: UIViewController {
         
         let latitude = String(format: "%f", location!.coordinate.latitude)
         let longitude = String(format: "%f", location!.coordinate.longitude)
-        //let radius = String(Float(filterDict["selectedRadius"]!)! * 1000)
         let radius = String(format: "%.0f", Float(filterDict["selectedRadius"]!)! * 1000)
         let types = filterDict["type"]
     
@@ -262,8 +260,10 @@ class PlacesViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OpenFilter" {
-            let controller = segue.destination as! FilterViewController
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! FilterViewController
             controller.filterDict = filterDict
+            
         } else if segue.identifier == "ShowMap" {
             let controller = segue.destination as! MapViewController
             controller.places = searchResults
@@ -281,29 +281,23 @@ class PlacesViewController: UIViewController {
             let distanceinKiloMeter = distanceInMeter/1000
             print ("distance \(distanceinKiloMeter)")
             return distanceinKiloMeter
-           //return "\(String(format:"%.1f", distanceinKiloMeter)) km"
-            
-            //return String(location.distance(from: storeCoordinate))
         } else {
             return nil
         }
     }
     
-
     
     func getPredictions(searchUrl: URL){
         
         let session = URLSession.shared
         
-        //3
         let dataTask = session.dataTask(with: searchUrl, completionHandler: {
             data, response, error in
-            // 4
             if let error = error {
                 print("Failure! \(error)")
             } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200{
                 if let data = data, let jsonDictionary = self.parse(json: data) {
-                    self.preditionList = self.parseAutoComplete(dictionary: jsonDictionary)
+                    self.predictionList = self.parseAutoComplete(dictionary: jsonDictionary)
                     print("self.searchResults \(self.searchResults)")
                     
                     DispatchQueue.main.async {
@@ -321,7 +315,7 @@ class PlacesViewController: UIViewController {
                 self.searchBarActivityIndicator.isHidden = true
             }
         })
-        // 5
+
         dataTask.resume()
     }
 }
@@ -368,17 +362,15 @@ extension PlacesViewController: UISearchBarDelegate {
         
         let session = URLSession.shared
         
-        //3
         let dataTask = session.dataTask(with: url, completionHandler: {
             data, response, error in
-            // 4
+
             if let error = error {
                 print("Failure! \(error)")
             } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200{
                 if let data = data, let jsonDictionary = self.parse(json: data) {
                     self.searchResults = self.parse(dictionary: jsonDictionary)
-                    //self.searchResults.sort(by: <)
-                    print("self.searchResults \(self.searchResults)")
+                    //print("self.searchResults \(self.searchResults)")
 
                     DispatchQueue.main.async {
                         self.isLoading = false
@@ -398,7 +390,7 @@ extension PlacesViewController: UISearchBarDelegate {
                 self.showNetworkError()
             }
         })
-        // 5
+
         dataTask.resume()
     }
     
@@ -417,9 +409,6 @@ extension PlacesViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        print("searchText => \(searchText)")
-        //self.tableView.reloadData()
         if searchText.characters.count >= 3 {
             let predctionUrl = self.getAutoCompleteUrl(searchText: searchText)
             self.autoCompleteTableView.isHidden = false
@@ -437,8 +426,7 @@ extension PlacesViewController: UISearchBarDelegate {
 extension PlacesViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.autoCompleteTableView {
-            //print("autoCompleteTableView >> numberOfRowsInSection")
-            return self.preditionList.count
+            return self.predictionList.count
         }
         
         if isLoading {
@@ -455,7 +443,7 @@ extension PlacesViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.autoCompleteTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.autoCompleteCell, for: indexPath)
-            cell.textLabel?.text = self.preditionList[indexPath.row].prediction
+            cell.textLabel?.text = self.predictionList[indexPath.row].prediction
             
             return cell
         }
@@ -487,12 +475,6 @@ extension PlacesViewController:UITableViewDataSource {
                 cell.starRatingView.isHidden = true
             }
             
-            /*
-            let getLat: CLLocationDegrees = searchResult.coordinate.latitude
-            let getLon: CLLocationDegrees = searchResult.coordinate.longitude
-            let storeLocation: CLLocation =  CLLocation(latitude: getLat, longitude: getLon)
-            cell.distanceLabel.text = calculateDistanceToStore(storeCoordinate: storeLocation)
-             */
             if let distanceInKm = searchResult.distance {
                 cell.distanceLabel.text = Util.formatDistanceText(distanceinKiloMeter: distanceInKm)
             }
@@ -517,7 +499,7 @@ extension PlacesViewController:UITableViewDataSource {
 extension PlacesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == self.autoCompleteTableView {
-            if let prediction: Prediction = preditionList[indexPath.row] as Prediction{
+            if let prediction: Prediction = predictionList[indexPath.row] as Prediction{
                 self.searchBar.text = prediction.prediction
                 self.searchBar.delegate?.searchBarSearchButtonClicked!(self.searchBar)
                 self.autoCompleteTableView.isHidden = true

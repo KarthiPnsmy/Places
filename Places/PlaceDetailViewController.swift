@@ -22,10 +22,12 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var awayLabel: UILabel!
     @IBOutlet weak var directionButton: UIButton!
     @IBOutlet weak var ratingView: CosmosView!
+    @IBOutlet weak var openNowLabel: UILabel!
     
     var place:Place?
     var isLoading = false
     var reviewList = [Review]()
+    var blinkStatus = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,22 @@ class PlaceDetailViewController: UIViewController {
                 ratingView.isHidden = true
             }
             
+            if let openNow = place.open_now {
+                if openNow {
+                    openNowLabel.text = "OPEN"
+                    openNowLabel.textColor = UIColor(hue: 0.2778, saturation: 0.93, brightness: 0.62, alpha: 1.0)
+                } else {
+                    openNowLabel.text = "CLOSED"
+                    openNowLabel.textColor = UIColor.red
+                }
+                
+                let timer = Timer(timeInterval: 1.5, target: self, selector: #selector(PlaceDetailViewController.blink), userInfo: nil, repeats: true)
+                RunLoop.current.add(timer, forMode: RunLoopMode.commonModes)
+            } else {
+                openNowLabel.isHidden = true
+            }
+
+            
             if let distanceInKm = place.distance {
                 awayLabel.text = "\(Util.formatDistanceText(distanceinKiloMeter: distanceInKm)) away"
             }
@@ -68,8 +86,6 @@ class PlaceDetailViewController: UIViewController {
             print("current page:", page)
         }
         
-        // try out other sources such as `afNetworkingSource`, `alamofireSource` or `sdWebImageSource` or `kingfisherSource`
-        
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(PlaceDetailViewController.didTap))
         imageSlideShow.addGestureRecognizer(recognizer)
         
@@ -77,6 +93,15 @@ class PlaceDetailViewController: UIViewController {
         let phoneTap = UITapGestureRecognizer(target: self, action: #selector(PlaceDetailViewController.phoneNoTapped))
         phoneNoLabel.isUserInteractionEnabled = true
         phoneNoLabel.addGestureRecognizer(phoneTap)
+    }
+    
+    func blink(){
+        openNowLabel.alpha = 0.0
+        UILabel.animate(withDuration: 1.5, animations: {
+            self.openNowLabel.alpha = 1.0
+        }, completion: {
+            (value: Bool) in
+        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
