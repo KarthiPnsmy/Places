@@ -264,7 +264,6 @@ class PlaceDetailViewController: UIViewController {
                         self.loadPlaceImages()
                         self.reviewTableView.reloadData()
                         self.phoneNoLabel.text = self.place?.phone_number
-                        print("table height2 -> \(self.reviewTableView.frame.height)")
                         //self.reviewTableView.frame.size.height = CGFloat(120 * self.reviewList.count)
                     }
                     return
