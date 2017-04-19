@@ -1,6 +1,6 @@
 # Places
 
-Places is a simple iOS app that uses **[Google Places API](https://developers.google.com/places/web-service/)** to find nearby places like restaurant, bar, atm, doctor...etc which is build on iOS 10, Swift 3, xCode 8.2. If you want to try this app, please change the Google API Key in Constant.swift file
+Places is a simple iOS app that uses **[Google Places API](https://developers.google.com/places/web-service/)** to find nearby places like restaurant, bar, atm, doctor...etc which is build on iOS 10, Swift 3, xCode 8.2. If you want to try this app, please change the **Google API Key** in **Constants.swift** file
 
 
 # Screenshots
