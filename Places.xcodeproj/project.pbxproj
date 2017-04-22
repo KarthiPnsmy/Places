@@ -96,28 +96,28 @@
 		6B0F9B271E8F5EEC00C308C0 /* Places */ = {
 			isa = PBXGroup;
 			children = (
-				6B72CEF91E93A7D600E679C0 /* MapViewController.swift */,
-				6BD2F2A41E90162F00054AD7 /* DLRadioButton.h */,
-				6BD2F2A51E90162F00054AD7 /* DLRadioButton.m */,
+				6B30C8E81E95249600A4421B /* AlamofireSource.swift */,
 				6B0F9B281E8F5EEC00C308C0 /* AppDelegate.swift */,
 				6B0F9B311E8F5EEC00C308C0 /* Assets.xcassets */,
 				6B0A9FAD1E8F979700005644 /* Constants.swift */,
+				6BD2F2A41E90162F00054AD7 /* DLRadioButton.h */,
+				6BD2F2A51E90162F00054AD7 /* DLRadioButton.m */,
 				6BD2F2A11E900D9E00054AD7 /* FilterViewController.swift */,
 				6B0F9B361E8F5EEC00C308C0 /* Info.plist */,
 				6B0F9B331E8F5EEC00C308C0 /* LaunchScreen.storyboard */,
 				6BD2F29B1E8FFF1300054AD7 /* LoadingCell.xib */,
 				6B0F9B2E1E8F5EEC00C308C0 /* Main.storyboard */,
+				6B72CEF91E93A7D600E679C0 /* MapViewController.swift */,
 				6BD2F2991E8FE96300054AD7 /* Place.swift */,
+				6BA9F0731E94E2D2001E3832 /* PlaceDetailViewController.swift */,
+				6BD2F2A31E90162E00054AD7 /* Places-Bridging-Header.h */,
 				6B0F9B2A1E8F5EEC00C308C0 /* PlacesViewController.swift */,
+				6BD02E311EA12E3300517B61 /* Prediction.swift */,
+				6BA9F0751E950C79001E3832 /* Review.swift */,
+				6BBBC2DA1E9BA25100E62128 /* ReviewCell.swift */,
+				6BBBC2D81E9BA0E300E62128 /* ReviewCell.xib */,
 				6BD2F29F1E9003F100054AD7 /* SearchResultCell.swift */,
 				6BD2F29D1E90014600054AD7 /* SearchResultCell.xib */,
-				6BBBC2D81E9BA0E300E62128 /* ReviewCell.xib */,
-				6BBBC2DA1E9BA25100E62128 /* ReviewCell.swift */,
-				6BD2F2A31E90162E00054AD7 /* Places-Bridging-Header.h */,
-				6BA9F0731E94E2D2001E3832 /* PlaceDetailViewController.swift */,
-				6BA9F0751E950C79001E3832 /* Review.swift */,
-				6B30C8E81E95249600A4421B /* AlamofireSource.swift */,
-				6BD02E311EA12E3300517B61 /* Prediction.swift */,
 				6B4A27391EA1FEFA0040CA07 /* Util.swift */,
 			);
 			path = Places;
@@ -176,6 +176,7 @@
 				TargetAttributes = {
 					6B0F9B241E8F5EEC00C308C0 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 2V4N954R2Q;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -409,6 +410,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 2V4N954R2Q;
 				INFOPLIST_FILE = Places/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.titut.Places;
@@ -425,6 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 2V4N954R2Q;
 				INFOPLIST_FILE = Places/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.titut.Places;

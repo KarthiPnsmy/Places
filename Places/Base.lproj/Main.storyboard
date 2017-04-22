@@ -94,12 +94,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uSV-TA-T78">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uSV-TA-T78">
                                 <rect key="frame" x="0.0" y="64" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uSV-TA-T78" secondAttribute="trailing" id="MAl-J4-29S"/>
+                            <constraint firstItem="uSV-TA-T78" firstAttribute="leading" secondItem="LRc-3V-7Xx" secondAttribute="leading" id="PKc-uH-10g"/>
+                            <constraint firstAttribute="bottom" secondItem="uSV-TA-T78" secondAttribute="bottom" id="cUS-L5-rXr"/>
+                            <constraint firstItem="uSV-TA-T78" firstAttribute="top" secondItem="gnt-Fm-Bit" secondAttribute="bottom" id="fWn-bO-1bh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="j5O-4f-g9X"/>
                     <connections>
@@ -295,7 +300,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="search within" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqP-AV-dZd">
-                                <rect key="frame" x="16" y="92" width="102" height="21"/>
+                                <rect key="frame" x="16" y="92" width="96" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ij4-FE-jkH"/>
                                 </constraints>
@@ -304,238 +309,231 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="search for" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyu-KU-Fb1">
-                                <rect key="frame" x="16" y="178" width="102" height="21"/>
+                                <rect key="frame" x="16" y="166" width="72.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="hng-wG-z5d">
-                                <rect key="frame" x="55" y="121" width="203" height="31"/>
+                                <rect key="frame" x="49" y="121" width="220" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="199" id="32d-Ic-wLP"/>
-                                    <constraint firstAttribute="height" constant="30" id="bZp-3s-HEo"/>
+                                    <constraint firstAttribute="height" constant="30" id="95h-Fh-llo"/>
                                 </constraints>
                                 <color key="minimumTrackTintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="sliderMoved:" destination="HvF-6j-gZl" eventType="valueChanged" id="cKE-ym-4L2"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSv-Z7-4Ge">
-                                <rect key="frame" x="16" y="125" width="38" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSv-Z7-4Ge">
+                                <rect key="frame" x="16" y="125" width="30" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="DBB-Gb-E5e"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.4861943493150685" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="10 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAE-yk-Mdj">
-                                <rect key="frame" x="266" y="126" width="38" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAE-yk-Mdj">
+                                <rect key="frame" x="272" y="126" width="38" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="8G9-bG-DHG"/>
+                                    <constraint firstAttribute="height" constant="21" id="xeS-bT-THH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.4861943493150685" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(2km)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTR-vP-Bzf">
-                                <rect key="frame" x="119" y="93" width="45" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(2km)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTR-vP-Bzf">
+                                <rect key="frame" x="119" y="93" width="70" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="F7d-kj-mIx"/>
+                                    <constraint firstAttribute="height" constant="21" id="nYk-gj-rmA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="12"/>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kao-xw-0xP" customClass="DLRadioButton">
-                                <rect key="frame" x="40" y="247" width="68" height="17"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1Bj-Eb-6b2">
+                                <rect key="frame" x="37" y="201" width="200" height="372"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYW-zf-QdM" customClass="DLRadioButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="Dje-gI-q1x"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="atm">
+                                            <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="otherButtons" destination="kao-xw-0xP" id="0oe-Zu-QS9"/>
+                                            <outletCollection property="otherButtons" destination="Hco-uB-xS3" id="uQy-e5-VUM"/>
+                                            <outletCollection property="otherButtons" destination="JZg-Lh-ajM" id="Cp0-9A-NND"/>
+                                            <outletCollection property="otherButtons" destination="8yl-nD-zhK" id="eVe-7A-R4W"/>
+                                            <outletCollection property="otherButtons" destination="lRU-5A-M9y" id="UET-Cp-J70"/>
+                                            <outletCollection property="otherButtons" destination="LrV-Bg-L6C" id="ufM-3D-4dy"/>
+                                            <outletCollection property="otherButtons" destination="gbg-xm-4aE" id="D6w-Uy-hZy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kao-xw-0xP" customClass="DLRadioButton">
+                                        <rect key="frame" x="0.0" y="49" width="180" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="Gp3-0b-2Ej"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="bank">
+                                            <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="otherButtons" destination="vYW-zf-QdM" id="3UL-GH-8hk"/>
+                                            <outletCollection property="otherButtons" destination="Hco-uB-xS3" id="Dgu-Hh-YgR"/>
+                                            <outletCollection property="otherButtons" destination="JZg-Lh-ajM" id="zSr-zf-yYL"/>
+                                            <outletCollection property="otherButtons" destination="8yl-nD-zhK" id="a0M-YG-ImB"/>
+                                            <outletCollection property="otherButtons" destination="lRU-5A-M9y" id="GtD-oq-zAA"/>
+                                            <outletCollection property="otherButtons" destination="LrV-Bg-L6C" id="svJ-FF-ged"/>
+                                            <outletCollection property="otherButtons" destination="gbg-xm-4aE" id="W5y-i0-dFt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hco-uB-xS3" customClass="DLRadioButton">
+                                        <rect key="frame" x="0.0" y="98" width="180" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="ioC-lt-N0p"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="bar">
+                                            <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZg-Lh-ajM" customClass="DLRadioButton">
+                                        <rect key="frame" x="0.0" y="147" width="180" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="gbH-la-hZ3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="cafe">
+                                            <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yl-nD-zhK" customClass="DLRadioButton">
+                                        <rect key="frame" x="0.0" y="196" width="180" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="Gpc-NV-BMp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="doctor">
+                                            <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRU-5A-M9y" customClass="DLRadioButton">
+                                        <rect key="frame" x="0.0" y="245" width="180" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="dW7-Hc-4ep"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="hospital">
+                                            <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrV-Bg-L6C" customClass="DLRadioButton">
+                                        <rect key="frame" x="0.0" y="294" width="180" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="nQP-mw-RCJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="park">
+                                            <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbg-xm-4aE" customClass="DLRadioButton">
+                                        <rect key="frame" x="0.0" y="343" width="180" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="0jZ-Yb-ag6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="restaurant">
+                                            <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="otherButtons" destination="LrV-Bg-L6C" id="i29-ku-7VQ"/>
+                                            <outletCollection property="otherButtons" destination="JZg-Lh-ajM" id="aYl-wJ-qCC"/>
+                                            <outletCollection property="otherButtons" destination="lRU-5A-M9y" id="1Vj-Q4-5sq"/>
+                                            <outletCollection property="otherButtons" destination="Hco-uB-xS3" id="tdV-sb-SBX"/>
+                                            <outletCollection property="otherButtons" destination="vYW-zf-QdM" id="AU7-Sg-848"/>
+                                            <outletCollection property="otherButtons" destination="kao-xw-0xP" id="Jwt-m7-yOy"/>
+                                            <outletCollection property="otherButtons" destination="8yl-nD-zhK" id="n5r-px-OpD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="cvX-LX-ljI"/>
+                                    <constraint firstAttribute="width" constant="200" id="bnT-G3-ik4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="bank">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                        <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outletCollection property="otherButtons" destination="vYW-zf-QdM" id="3UL-GH-8hk"/>
-                                    <outletCollection property="otherButtons" destination="Hco-uB-xS3" id="Dgu-Hh-YgR"/>
-                                    <outletCollection property="otherButtons" destination="gbg-xm-4aE" id="W5y-i0-dFt"/>
-                                    <outletCollection property="otherButtons" destination="LrV-Bg-L6C" id="svJ-FF-ged"/>
-                                    <outletCollection property="otherButtons" destination="lRU-5A-M9y" id="GtD-oq-zAA"/>
-                                    <outletCollection property="otherButtons" destination="8yl-nD-zhK" id="a0M-YG-ImB"/>
-                                    <outletCollection property="otherButtons" destination="JZg-Lh-ajM" id="zSr-zf-yYL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYW-zf-QdM" customClass="DLRadioButton">
-                                <rect key="frame" x="40" y="216" width="54" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="E8o-je-eW1"/>
-                                    <constraint firstAttribute="height" constant="17" id="sce-Av-zrW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="atm">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                        <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outletCollection property="otherButtons" destination="kao-xw-0xP" id="0oe-Zu-QS9"/>
-                                    <outletCollection property="otherButtons" destination="Hco-uB-xS3" id="uQy-e5-VUM"/>
-                                    <outletCollection property="otherButtons" destination="JZg-Lh-ajM" id="Cp0-9A-NND"/>
-                                    <outletCollection property="otherButtons" destination="8yl-nD-zhK" id="eVe-7A-R4W"/>
-                                    <outletCollection property="otherButtons" destination="lRU-5A-M9y" id="UET-Cp-J70"/>
-                                    <outletCollection property="otherButtons" destination="LrV-Bg-L6C" id="ufM-3D-4dy"/>
-                                    <outletCollection property="otherButtons" destination="gbg-xm-4aE" id="D6w-Uy-hZy"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hco-uB-xS3" customClass="DLRadioButton">
-                                <rect key="frame" x="39" y="276" width="71" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="71" id="PwO-Zv-8GB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="bar">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                        <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZg-Lh-ajM" customClass="DLRadioButton">
-                                <rect key="frame" x="40" y="301" width="71" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="71" id="AN1-hz-RNj"/>
-                                    <constraint firstAttribute="height" constant="31" id="XGO-xo-UXi"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="cafe">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                        <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yl-nD-zhK" customClass="DLRadioButton">
-                                <rect key="frame" x="40" y="338" width="71" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="71" id="EQl-Os-BDV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="doctor">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                        <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRU-5A-M9y" customClass="DLRadioButton">
-                                <rect key="frame" x="40" y="369" width="151" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="0dG-l5-MoR"/>
-                                    <constraint firstAttribute="height" constant="31" id="Fjv-Eb-mZl"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="hospital">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                        <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrV-Bg-L6C" customClass="DLRadioButton">
-                                <rect key="frame" x="41" y="400" width="71" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="71" id="r4g-YM-dny"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="park">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                        <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbg-xm-4aE" customClass="DLRadioButton">
-                                <rect key="frame" x="42" y="431" width="200" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="kfS-Mn-HfL"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="restaurant">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                        <color key="value" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outletCollection property="otherButtons" destination="LrV-Bg-L6C" id="i29-ku-7VQ"/>
-                                    <outletCollection property="otherButtons" destination="lRU-5A-M9y" id="1Vj-Q4-5sq"/>
-                                    <outletCollection property="otherButtons" destination="8yl-nD-zhK" id="n5r-px-OpD"/>
-                                    <outletCollection property="otherButtons" destination="JZg-Lh-ajM" id="aYl-wJ-qCC"/>
-                                    <outletCollection property="otherButtons" destination="Hco-uB-xS3" id="tdV-sb-SBX"/>
-                                    <outletCollection property="otherButtons" destination="kao-xw-0xP" id="Jwt-m7-yOy"/>
-                                    <outletCollection property="otherButtons" destination="vYW-zf-QdM" id="AU7-Sg-848"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sqP-AV-dZd" firstAttribute="leading" secondItem="KOb-1V-ZSp" secondAttribute="leadingMargin" id="0Af-K7-2aC"/>
+                            <constraint firstItem="fyu-KU-Fb1" firstAttribute="top" secondItem="hng-wG-z5d" secondAttribute="bottom" constant="15" id="1iv-Mi-BI3"/>
                             <constraint firstItem="sqP-AV-dZd" firstAttribute="top" secondItem="KOb-1V-ZSp" secondAttribute="top" constant="92" id="1sM-G0-gvB"/>
-                            <constraint firstItem="hng-wG-z5d" firstAttribute="leading" secondItem="KOb-1V-ZSp" secondAttribute="leading" constant="57" id="4Q1-Yz-4BM"/>
-                            <constraint firstItem="JXO-lT-Iof" firstAttribute="top" secondItem="Hco-uB-xS3" secondAttribute="bottom" constant="275" id="5GJ-2W-cAF"/>
-                            <constraint firstItem="lRU-5A-M9y" firstAttribute="leading" secondItem="kao-xw-0xP" secondAttribute="leading" id="9MG-Uw-ynk"/>
-                            <constraint firstItem="LrV-Bg-L6C" firstAttribute="leading" secondItem="KOb-1V-ZSp" secondAttribute="leadingMargin" constant="25" id="EBE-Yu-CIf"/>
-                            <constraint firstItem="8yl-nD-zhK" firstAttribute="top" secondItem="JZg-Lh-ajM" secondAttribute="bottom" constant="6" id="Etg-f1-oC3"/>
-                            <constraint firstItem="hng-wG-z5d" firstAttribute="centerY" secondItem="DAE-yk-Mdj" secondAttribute="centerY" id="G0A-bm-xNe"/>
-                            <constraint firstItem="Hco-uB-xS3" firstAttribute="centerX" secondItem="kao-xw-0xP" secondAttribute="centerX" id="IxK-2P-obk"/>
-                            <constraint firstItem="JXO-lT-Iof" firstAttribute="top" secondItem="gbg-xm-4aE" secondAttribute="bottom" constant="106" id="JWj-VH-OEs"/>
-                            <constraint firstItem="vYW-zf-QdM" firstAttribute="centerX" secondItem="sqP-AV-dZd" secondAttribute="centerX" id="Jbj-7s-4yb"/>
-                            <constraint firstItem="Hco-uB-xS3" firstAttribute="top" secondItem="kao-xw-0xP" secondAttribute="bottom" constant="12" id="JcA-6k-rvx"/>
-                            <constraint firstItem="hng-wG-z5d" firstAttribute="top" secondItem="iTR-vP-Bzf" secondAttribute="bottom" constant="7" id="KzQ-eZ-eHn"/>
-                            <constraint firstItem="vYW-zf-QdM" firstAttribute="top" secondItem="KOb-1V-ZSp" secondAttribute="top" constant="216" id="PKa-DA-ukw"/>
-                            <constraint firstItem="LrV-Bg-L6C" firstAttribute="top" secondItem="lRU-5A-M9y" secondAttribute="bottom" id="SDe-7p-zFe"/>
-                            <constraint firstAttribute="bottom" secondItem="lRU-5A-M9y" secondAttribute="bottom" constant="168" id="SPL-Wt-eoq"/>
-                            <constraint firstItem="vYW-zf-QdM" firstAttribute="centerX" secondItem="fyu-KU-Fb1" secondAttribute="centerX" id="URA-2U-vau"/>
-                            <constraint firstItem="vYW-zf-QdM" firstAttribute="leading" secondItem="KOb-1V-ZSp" secondAttribute="leadingMargin" constant="24" id="Vrr-O8-HdA"/>
+                            <constraint firstAttribute="trailing" secondItem="DAE-yk-Mdj" secondAttribute="trailing" constant="10" id="3F8-hq-mVb"/>
+                            <constraint firstItem="hng-wG-z5d" firstAttribute="leading" secondItem="dSv-Z7-4Ge" secondAttribute="trailing" constant="5" id="8Kr-4W-9Nx"/>
+                            <constraint firstItem="1Bj-Eb-6b2" firstAttribute="leading" secondItem="KOb-1V-ZSp" secondAttribute="leadingMargin" constant="21" id="8VS-Rr-cFg"/>
+                            <constraint firstItem="iTR-vP-Bzf" firstAttribute="leading" secondItem="sqP-AV-dZd" secondAttribute="trailing" constant="7" id="9aQ-0e-Tdg"/>
+                            <constraint firstItem="dSv-Z7-4Ge" firstAttribute="top" secondItem="sqP-AV-dZd" secondAttribute="bottom" constant="12" id="O6A-32-jDf"/>
+                            <constraint firstItem="1Bj-Eb-6b2" firstAttribute="top" secondItem="fyu-KU-Fb1" secondAttribute="bottom" constant="17" id="OER-gS-3Q9"/>
+                            <constraint firstItem="dSv-Z7-4Ge" firstAttribute="leading" secondItem="KOb-1V-ZSp" secondAttribute="leadingMargin" id="VVq-U9-dOL"/>
+                            <constraint firstItem="iTR-vP-Bzf" firstAttribute="top" secondItem="tUt-Vf-ftr" secondAttribute="bottom" constant="29" id="Wz3-ud-7gu"/>
                             <constraint firstItem="sqP-AV-dZd" firstAttribute="leading" secondItem="fyu-KU-Fb1" secondAttribute="leading" id="ZFv-Xz-ztr"/>
-                            <constraint firstItem="iTR-vP-Bzf" firstAttribute="leading" secondItem="sqP-AV-dZd" secondAttribute="trailing" constant="1" id="bsw-NB-WY8"/>
-                            <constraint firstItem="JXO-lT-Iof" firstAttribute="top" secondItem="LrV-Bg-L6C" secondAttribute="bottom" constant="137" id="c21-7T-ZX8"/>
-                            <constraint firstItem="lRU-5A-M9y" firstAttribute="leading" secondItem="8yl-nD-zhK" secondAttribute="leading" id="cHn-aR-hxq"/>
-                            <constraint firstItem="sqP-AV-dZd" firstAttribute="leading" secondItem="dSv-Z7-4Ge" secondAttribute="leading" id="cOV-XE-0L7"/>
-                            <constraint firstItem="fyu-KU-Fb1" firstAttribute="top" secondItem="hng-wG-z5d" secondAttribute="bottom" constant="27" id="ebe-Q9-k9e"/>
-                            <constraint firstItem="hng-wG-z5d" firstAttribute="leading" secondItem="dSv-Z7-4Ge" secondAttribute="trailing" constant="3" id="erp-xK-n7F"/>
-                            <constraint firstItem="lRU-5A-M9y" firstAttribute="top" secondItem="8yl-nD-zhK" secondAttribute="bottom" id="gPu-z2-IPY"/>
-                            <constraint firstItem="Hco-uB-xS3" firstAttribute="centerY" secondItem="KOb-1V-ZSp" secondAttribute="centerY" id="gVd-XT-o3O"/>
-                            <constraint firstItem="kao-xw-0xP" firstAttribute="top" secondItem="vYW-zf-QdM" secondAttribute="bottom" constant="14" id="gfU-TJ-TCx"/>
-                            <constraint firstItem="vYW-zf-QdM" firstAttribute="leading" secondItem="kao-xw-0xP" secondAttribute="leading" id="iIN-5N-7fk"/>
-                            <constraint firstItem="JZg-Lh-ajM" firstAttribute="top" secondItem="Hco-uB-xS3" secondAttribute="bottom" constant="8" symbolic="YES" id="kHt-mH-Hbx"/>
-                            <constraint firstItem="gbg-xm-4aE" firstAttribute="leading" secondItem="KOb-1V-ZSp" secondAttribute="leadingMargin" constant="26" id="qKN-L6-y74"/>
-                            <constraint firstItem="DAE-yk-Mdj" firstAttribute="leading" secondItem="hng-wG-z5d" secondAttribute="trailing" constant="10" id="qUd-AP-cRr"/>
-                            <constraint firstItem="gbg-xm-4aE" firstAttribute="top" secondItem="LrV-Bg-L6C" secondAttribute="bottom" id="rME-lP-BHs"/>
-                            <constraint firstItem="hng-wG-z5d" firstAttribute="top" secondItem="sqP-AV-dZd" secondAttribute="bottom" constant="8" symbolic="YES" id="tiA-Sc-nMf"/>
-                            <constraint firstItem="vYW-zf-QdM" firstAttribute="top" secondItem="fyu-KU-Fb1" secondAttribute="bottom" constant="17" id="x6Z-kD-MwF"/>
-                            <constraint firstItem="hng-wG-z5d" firstAttribute="centerY" secondItem="dSv-Z7-4Ge" secondAttribute="centerY" id="xjY-1r-bFA"/>
-                            <constraint firstItem="lRU-5A-M9y" firstAttribute="leading" secondItem="JZg-Lh-ajM" secondAttribute="leading" id="ymQ-0O-L2c"/>
+                            <constraint firstItem="DAE-yk-Mdj" firstAttribute="leading" secondItem="hng-wG-z5d" secondAttribute="trailing" constant="5" id="jz8-7o-2UF"/>
+                            <constraint firstItem="hng-wG-z5d" firstAttribute="top" secondItem="iTR-vP-Bzf" secondAttribute="bottom" constant="7" id="oEH-jC-ebW"/>
+                            <constraint firstItem="DAE-yk-Mdj" firstAttribute="top" secondItem="tUt-Vf-ftr" secondAttribute="bottom" constant="62" id="uJ9-I6-ZR2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Filter" id="zE5-G7-sP2">
@@ -626,6 +624,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5mX-ce-msp"/>
+        <segue reference="row-h5-GMn"/>
     </inferredMetricsTieBreakers>
 </document>
